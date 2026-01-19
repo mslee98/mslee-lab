@@ -2118,7 +2118,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"a@workspace:packages/a":
+"a@workspace:*, a@workspace:packages/a":
   version: 0.0.0-use.local
   resolution: "a@workspace:packages/a"
   dependencies:
@@ -3037,6 +3037,13 @@ __metadata:
     no-case: "npm:^3.0.4"
     tslib: "npm:^2.0.3"
   checksum: 10c0/5b859ea65097a7ea870e2c91b5768b72ddf7fa947223fd29e167bcdff58fe731d941c48e47a38ec8aa8e43044c8fbd15cd8fa21689a526bc34b6548197cd5b05
+  languageName: node
+  linkType: hard
+
+"dotenv@npm:^17.2.3":
+  version: 17.2.3
+  resolution: "dotenv@npm:17.2.3"
+  checksum: 10c0/c884403209f713214a1b64d4d1defa4934c2aa5b0002f5a670ae298a51e3c3ad3ba79dfee2f8df49f01ae74290fcd9acdb1ab1d09c7bfb42b539036108bb2ba0
   languageName: node
   linkType: hard
 
@@ -5315,6 +5322,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-device-frameset@npm:^1.3.4":
+  version: 1.3.4
+  resolution: "react-device-frameset@npm:1.3.4"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: 10c0/7ae67a19291f90342c7dea55705ff482968cb782fc686ddf81ab8558d7c1d4ea43f0bf71e6b07794bba02c8d96eb7145b31a6dc74b4cb6174600a060b36c1ede
+  languageName: node
+  linkType: hard
+
 "react-dom@npm:^19.2.3":
   version: 19.2.3
   resolution: "react-dom@npm:19.2.3"
@@ -5785,6 +5801,34 @@ __metadata:
   checksum: 10c0/bee87c34e1e986cfb4c30846b8e6327d18874f10b535699866f368ade11ea4ee45433d97bf5eada22c4320c27df79c3a6a7eb1bf3ecfc47f2c997d9e5e2672fd
   languageName: node
   linkType: hard
+
+"shell@workspace:apps/shell":
+  version: 0.0.0-use.local
+  resolution: "shell@workspace:apps/shell"
+  dependencies:
+    "@babel/core": "npm:^7.28.5"
+    "@babel/preset-env": "npm:^7.28.5"
+    "@babel/preset-react": "npm:^7.28.5"
+    "@babel/preset-typescript": "npm:^7.28.5"
+    "@types/react": "npm:^19.2.7"
+    "@types/react-dom": "npm:^19.2.3"
+    a: "workspace:*"
+    b: "workspace:*"
+    babel-loader: "npm:^10.0.0"
+    css-loader: "npm:^7.1.2"
+    dotenv: "npm:^17.2.3"
+    html-webpack-plugin: "npm:^5.6.5"
+    pnp-webpack-plugin: "npm:^1.7.0"
+    react: "npm:^19.2.3"
+    react-device-frameset: "npm:^1.3.4"
+    react-dom: "npm:^19.2.3"
+    react-router-dom: "npm:^7.11.0"
+    style-loader: "npm:^4.0.0"
+    webpack: "npm:^5.104.1"
+    webpack-cli: "npm:^6.0.1"
+    webpack-dev-server: "npm:^5.2.2"
+  languageName: unknown
+  linkType: soft
 
 "side-channel-list@npm:^1.0.0":
   version: 1.0.0
