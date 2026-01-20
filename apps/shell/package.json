@@ -1,6 +1,7 @@
 {
   "name": "shell",
   "packageManager": "yarn@4.5.2",
+  "main": "src/main.jsx",
   "scripts": {
     "dev": "NODE_ENV=development webpack serve --config webpack.config.js",
     "build": "NODE_ENV=production webpack --config webpack.config.js",
@@ -21,12 +22,16 @@
     "@babel/preset-typescript": "^7.28.5",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
+    "autoprefixer": "^10.4.23",
     "babel-loader": "^10.0.0",
     "css-loader": "^7.1.2",
     "dotenv": "^17.2.3",
     "html-webpack-plugin": "^5.6.5",
     "pnp-webpack-plugin": "^1.7.0",
+    "postcss": "^8.5.6",
+    "postcss-loader": "^8.2.0",
     "style-loader": "^4.0.0",
+    "tailwindcss": "^3.4.19",
     "webpack": "^5.104.1",
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.2"

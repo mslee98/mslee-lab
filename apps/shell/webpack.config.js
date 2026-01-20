@@ -1,7 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { PnpWebpackPlugin } = require('pnp-webpack-plugin'); // Yarn Berry2에서는 내장되어서 다운로드 안해두 된다. 3에서는 해야함
-const webpack = require('webpack');
 
 // NODE_ENV 기본값 보장
 const mode = process.env.NODE_ENV || 'development';
@@ -40,6 +39,7 @@ module.exports = {
                     // **우측에서 왼쪽 순으로 실행된다.**
                     'style-loader', // CSS를 <style> 태그로 주입
                     'css-loader', // CSS를 JS 모듈로 변환
+                    'postcss-loader',
                 ]
             },
             {
@@ -52,6 +52,7 @@ module.exports = {
         ]
     },
     plugins: [
+        // 초기에는 각 앱들을 iframe으로 가져오려고 했었음
         // new webpack.DefinePlugin({
         // __APP1_URL__: JSON.stringify(process.env.APP1_URL),
         // __APP2_URL__: JSON.stringify(process.env.APP2_URL),
@@ -71,9 +72,9 @@ module.exports = {
         plugins: [PnpWebpackPlugin]
     },
     // 없어도 인식 되네?
-    // resolveLoader: {
-    //     plugins: [PnpWebpackPlugin]
-    // },
+    resolveLoader: {
+        plugins: [PnpWebpackPlugin]
+    },
     devServer: {
         static: [
             { directory: path.join(__dirname, "dist")}, // 빌드된 파일을 이 경로에서 서빙

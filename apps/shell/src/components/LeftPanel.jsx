@@ -39,7 +39,7 @@ function LeftPanel({ apps, currentApp, onSelectApp, currentDevice, onSelectDevic
 
   return (
     <div style={styles.left}>
-      <h1>Ms Mobile Lab</h1>
+      <h1 className="text-red text-lg">Ms Mobile Lab</h1>
 
       <div style={styles.menu}>
         {Object.entries(apps).map(([key, app]) => (
