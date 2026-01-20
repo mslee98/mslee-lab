@@ -2,6 +2,7 @@ import { DeviceFrameset } from 'react-device-frameset';
 import 'react-device-frameset/styles/marvel-devices.min.css';
 import { lazy, Suspense } from 'react';
 import IOSHome from './IOSHome';
+import Loader from './common/Loader';
 
 const KakaoBankApp = lazy(() => import('kakaobank'));
 const TossApp = lazy(() => import('toss'));
@@ -28,9 +29,19 @@ export default function RightPanel({ currentApp, app, device, apps, onSelectApp 
   return (
     <div style={styles.right}>
       <DeviceFrameset device={device} landscape={false}>
-        <div style={{ width: '100%', height: '100%', display: 'flex', cursor: 'default' }}>
+        <div 
+          className="screen-overlay" 
+          style={{ 
+            width: '100%', 
+            height: '100%', 
+            display: 'flex', 
+            cursor: 'default',
+            backgroundImage: `url(/assets/iPhone.png)`, 
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}>
           {app ? (
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Loader />}>
               {renderApp()}
             </Suspense>
           ) : (

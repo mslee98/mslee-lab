@@ -12,7 +12,7 @@ export default function KakaoBankApp() {
         color: '#fff',
       }}
     >
-      A PROJECT
+      Kakao Bank App
     </div>
   );
 }
