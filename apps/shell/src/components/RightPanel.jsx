@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { DeviceFrameset } from 'react-device-frameset';
 import 'react-device-frameset/styles/marvel-devices.min.css';
 import { lazy, Suspense } from 'react';
-import IOSHome from './IOSHome';
+import AppScreen from './AppScreen';
 import Loader from './common/Loader';
 
 const KakaoBankApp = lazy(() => import('kakaobank'));
@@ -47,7 +47,7 @@ function RightPanel({ currentApp, app, device, apps, onSelectApp }) {
               {renderApp()}
             </Suspense>
           ) : (
-            <IOSHome apps={apps} onSelectApp={onSelectApp} />
+            <AppScreen apps={apps} onSelectApp={onSelectApp} />
           )}
         </div>
       </DeviceFrameset>
