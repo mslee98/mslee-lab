@@ -2,8 +2,11 @@ const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { PnpWebpackPlugin } = require('pnp-webpack-plugin'); // Yarn Berry2에서는 내장되어서 다운로드 안해두 된다. 3에서는 해야함
 
+// NODE_ENV 기본값 보장
+const mode = process.env.NODE_ENV || 'development';
+
 module.exports = {
-    mode: 'development',
+    mode,
     entry: './src/main.jsx',
     output: {
         filename: 'bundle.js',
@@ -30,7 +33,8 @@ module.exports = {
                 use: [
                     // **우측에서 왼쪽 순으로 실행된다.**
                     'style-loader', // CSS를 <style> 태그로 주입
-                    'css-loader', // CSS를 JS 모듈로 변환
+                    'css-loader', // CSS를 JS 모듈로 변환,
+                    'postcss-loader',
                 ]
             },
         ]
@@ -52,6 +56,9 @@ module.exports = {
     resolveLoader: {
         plugins: [PnpWebpackPlugin]
     },
+    // resolveLoader: {
+    //     plugins: [PnpWebpackPlugin.moduleLoader(module)], 이전버전 스타일 [PnpWebpackPlugin] 지금은 이렇게 사용해야함 
+    // },
     devServer: {
         static: {
             directory: path.join(__dirname, "dist") // 빌드된 파일을 이 경로에서 서빙

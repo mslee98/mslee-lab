@@ -1,18 +1,18 @@
 export default function KakaoBankApp() {
   return (
-    <div
-      style={{
-        width: '100vw',
-        
-        backgroundColor: 'red',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: '48px',
-        color: '#fff',
-      }}
-    >
-      Kakao Bank App
-    </div>
+    <>
+      <div className="
+        w-screen
+        h-screen
+        bg-red-500
+        flex
+        items-center
+        justify-center
+        text-[48px]
+        text-white
+      ">
+        Kakao Bank App
+      </div>
+    </>
   );
 }
