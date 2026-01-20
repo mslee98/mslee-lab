@@ -26,7 +26,7 @@ export default function App() {
           currentDevice={currentDevice} 
           onSelectDevice={setCurrentDevice}
         />
-        <RightPanel app={currentApp ? APPS[currentApp] : null} device={currentDevice} apps={APPS} />
+        <RightPanel currentApp={currentApp} app={currentApp ? APPS[currentApp] : null} device={currentDevice} apps={APPS} onSelectApp={setCurrentApp}/>
       </div>
     </div>
   );

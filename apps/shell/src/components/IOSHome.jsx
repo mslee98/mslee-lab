@@ -1,10 +1,10 @@
-export default function IOSHome({ apps = {} }) {
+export default function IOSHome({ apps = {}, onSelectApp }) {
   const appEntries = Object.entries(apps);
   
   // 그리드 컨테이너 스타일 (아이폰 홈 화면처럼 4열 그리드)
   const gridStyle = {
     position: 'absolute',
-    top: '100px', // 상단 여백
+    top: '60px', // 상단 여백
     left: '20px',
     right: '20px',
     display: 'grid',
@@ -40,6 +40,7 @@ export default function IOSHome({ apps = {} }) {
           <div
             key={key}
             style={appIconStyle}
+            onClick={() => onSelectApp(key)}
             onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.1)'}
             onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
           >

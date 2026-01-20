@@ -25,7 +25,7 @@ const DEVICES = [
 export default function LeftPanel({ apps, currentApp, onSelectApp, currentDevice, onSelectDevice }) {
   return (
     <div style={styles.left}>
-      <h1>My Mobile Lab</h1>
+      <h1>Ms Mobile Lab</h1>
 
       <div style={styles.menu}>
         {Object.entries(apps).map(([key, app]) => (
