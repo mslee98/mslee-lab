@@ -52,11 +52,11 @@ module.exports = {
         ]
     },
     plugins: [
-        new webpack.DefinePlugin({
-        __APP1_URL__: JSON.stringify(process.env.APP1_URL),
-        __APP2_URL__: JSON.stringify(process.env.APP2_URL),
-        __NODE_ENV__: JSON.stringify(mode),
-        }),
+        // new webpack.DefinePlugin({
+        // __APP1_URL__: JSON.stringify(process.env.APP1_URL),
+        // __APP2_URL__: JSON.stringify(process.env.APP2_URL),
+        // __NODE_ENV__: JSON.stringify(mode),
+        // }),
         new HtmlWebpackPlugin({
             template: "public/index.html", // 템플릿 HTML
             filename: "index.html", // 출력될 HTML 파일 이름

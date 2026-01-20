@@ -14,7 +14,9 @@ function StatusBar() {
   return (
     <div style={styles.bar}>
       <div style={styles.left}>{time}</div>
-      <div style={styles.right}><img src='/assets/Battery.png'/></div>
+      <div style={styles.right}>
+        <img src='/assets/Battery.png'/>
+      </div>
     </div>
   );
 }

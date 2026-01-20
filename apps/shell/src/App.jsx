@@ -4,8 +4,8 @@ import RightPanel from './components/RightPanel';
 
 const APPS = {
   home: { name: 'Home', url: null, icon: null },
-  kakaobank: { name: '카카오뱅크', url: __APP1_URL__, icon: '/assets/kakaobank_logo.jpeg' },
-  toss: { name: '토스', url: __APP2_URL__, icon: '/assets/Toss_App_Icon.png' },
+  kakaobank: { name: '카카오뱅크', icon: '/assets/kakaobank_logo.jpeg' },
+  toss: { name: '토스',icon: '/assets/Toss_App_Icon.png' },
 };
 
 const styles = {
