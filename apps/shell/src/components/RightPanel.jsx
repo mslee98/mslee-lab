@@ -3,6 +3,8 @@ import 'react-device-frameset/styles/marvel-devices.min.css';
 // import 'react-device-frameset/styles/device-emulator.min.css'
 import IOSHome from './IOSHome';
 
+import KakaoBankApp from 'kakaobank';
+
 const styles = {
   right: { display: 'flex', justifyContent: 'center', margin: 0, padding: 0 },
   iframe: { width: '100%', height: '100%', border: 'none' },
@@ -11,10 +13,11 @@ const styles = {
 export default function RightPanel({ app, device }) {
   return (
     <div style={styles.right}>
-      <DeviceFrameset device={device} landscape={true}>
+      <DeviceFrameset device={device} landscape={false}>
         <div style={{ width: '100%', height: '100%', display: 'flex' }}>
           {app ? (
-            <iframe src={app.url} style={styles.iframe} />
+            // <iframe src={app.url} style={styles.iframe} />
+            <KakaoBankApp/>
           ) : (
             <IOSHome />
           )}

@@ -49,9 +49,9 @@ module.exports = {
         },
         plugins: [PnpWebpackPlugin]
     },
-    // resolveLoader: {
-    //     plugins: [PnpWebpackPlugin.moduleLoader(module)]
-    // },
+    resolveLoader: {
+        plugins: [PnpWebpackPlugin]
+    },
     devServer: {
         static: {
             directory: path.join(__dirname, "dist") // 빌드된 파일을 이 경로에서 서빙

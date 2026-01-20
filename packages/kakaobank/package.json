@@ -1,6 +1,7 @@
 {
-  "name": "a",
+  "name": "kakaobank",
   "packageManager": "yarn@4.5.2",
+  "main": "./src/index.js",
   "scripts": {
     "dev": "webpack serve --config webpack.config.js",
     "build": "webpack --config webpack.config.js",

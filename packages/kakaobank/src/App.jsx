@@ -1,9 +1,9 @@
-export default function kakaoApp() {
+export default function KakaoBankApp() {
   return (
     <div
       style={{
         width: '100vw',
-        height: '100vh',
+        
         backgroundColor: 'red',
         display: 'flex',
         alignItems: 'center',
