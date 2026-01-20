@@ -3,6 +3,7 @@ import LeftPanel from './components/LeftPanel';
 import RightPanel from './components/RightPanel';
 
 const APPS = {
+  home: { name: 'Home', url: null, icon: null },
   kakaobank: { name: '카카오뱅크', url: __APP1_URL__, icon: '/assets/kakaobank_logo.jpeg' },
   toss: { name: '토스', url: __APP2_URL__, icon: '/assets/Toss_App_Icon.png' },
 };
@@ -13,7 +14,7 @@ const styles = {
 };
 
 export default function App() {
-  const [currentApp, setCurrentApp] = useState(null); // 앱 선택
+  const [currentApp, setCurrentApp] = useState('home'); // 앱 선택
   const [currentDevice, setCurrentDevice] = useState('iPhone X'); // 디바이스 선택
 
   return (

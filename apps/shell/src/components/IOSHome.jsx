@@ -1,5 +1,6 @@
 export default function IOSHome({ apps = {}, onSelectApp }) {
-  const appEntries = Object.entries(apps);
+  // 'home'은 앱 목록에서 제외하고, icon이 있는 앱만 표시
+  const appEntries = Object.entries(apps).filter(([key, app]) => key !== 'home' && app.icon);
   
   // 그리드 컨테이너 스타일 (아이폰 홈 화면처럼 4열 그리드)
   const gridStyle = {

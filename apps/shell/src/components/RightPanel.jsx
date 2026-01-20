@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { DeviceFrameset } from 'react-device-frameset';
 import 'react-device-frameset/styles/marvel-devices.min.css';
 import { lazy, Suspense } from 'react';
@@ -12,7 +13,8 @@ const styles = {
   iframe: { width: '100%', height: '100%', border: 'none' },
 };
 
-export default function RightPanel({ currentApp, app, device, apps, onSelectApp }) {
+
+function RightPanel({ currentApp, app, device, apps, onSelectApp }) {
   const renderApp = () => {
     if (!currentApp) return null;
     
@@ -40,7 +42,7 @@ export default function RightPanel({ currentApp, app, device, apps, onSelectApp 
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}>
-          {app ? (
+          {app && currentApp !== 'home' ? (
             <Suspense fallback={<Loader />}>
               {renderApp()}
             </Suspense>
@@ -52,3 +54,5 @@ export default function RightPanel({ currentApp, app, device, apps, onSelectApp 
     </div>
   );
 }
+
+export default memo(RightPanel);

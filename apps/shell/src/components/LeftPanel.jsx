@@ -1,3 +1,7 @@
+import { memo, useCallback } from 'react';
+import DeviceMenuButton from './MenuButton';
+
+
 const styles = {
   left: { flex: 1, paddingTop: 80 },
   banner: { marginTop: 24, padding: 16, background: '#fff', borderRadius: 16, boxShadow: '0 8px 24px rgba(0,0,0,0.06)' },
@@ -22,35 +26,49 @@ const DEVICES = [
 //   { label: 'MacBook Pro', value: 'MacBook Pro' },
 ];
 
-export default function LeftPanel({ apps, currentApp, onSelectApp, currentDevice, onSelectDevice }) {
+function LeftPanel({ apps, currentApp, onSelectApp, currentDevice, onSelectDevice }) {
+
+
+  const handleSelectApp = useCallback((key) => {
+    onSelectApp(key);
+  }, [onSelectApp]);
+
+  const handleSelectDevice = useCallback( (value) => {
+    onSelectDevice(value);
+  }, [onSelectDevice]);
+
   return (
     <div style={styles.left}>
       <h1>Ms Mobile Lab</h1>
 
       <div style={styles.menu}>
         {Object.entries(apps).map(([key, app]) => (
-          <button
+          <DeviceMenuButton
             key={key}
-            style={styles.button(currentApp === key)}
-            onClick={() => onSelectApp(key)}
+            value={key}
+            active={currentApp === key}
+            onClick={handleSelectApp}
           >
             {app.name}
-          </button>
+          </DeviceMenuButton>
         ))}
       </div>
 
       <h2 style={{ marginTop: 32 }}>디바이스 선택</h2>
       <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
         {DEVICES.map((d) => (
-          <button
+          <DeviceMenuButton
             key={d.value}
-            style={styles.button(currentDevice === d.value)}
-            onClick={() => onSelectDevice(d.value)}
+            value={d.value}
+            active={currentDevice === d.value}
+            onClick={handleSelectDevice}
           >
             {d.label}
-          </button>
+          </DeviceMenuButton>
         ))}
       </div>
     </div>
   );
 }
+
+export default memo(LeftPanel);
