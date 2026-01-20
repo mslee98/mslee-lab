@@ -70,9 +70,10 @@ module.exports = {
         },
         plugins: [PnpWebpackPlugin]
     },
-    resolveLoader: {
-        plugins: [PnpWebpackPlugin]
-    },
+    // 없어도 인식 되네?
+    // resolveLoader: {
+    //     plugins: [PnpWebpackPlugin]
+    // },
     devServer: {
         static: [
             { directory: path.join(__dirname, "dist")}, // 빌드된 파일을 이 경로에서 서빙

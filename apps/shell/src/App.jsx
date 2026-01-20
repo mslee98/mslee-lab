@@ -3,8 +3,8 @@ import LeftPanel from './components/LeftPanel';
 import RightPanel from './components/RightPanel';
 
 const APPS = {
-  kabank: { name: '카카오뱅크', url: __APP1_URL__ },
-  toss: { name: '토스', url: __APP2_URL__ },
+  kakaobank: { name: '카카오뱅크', url: __APP1_URL__, icon: '/assets/kakaobank_logo.jpeg' },
+  toss: { name: '토스', url: __APP2_URL__, icon: '/assets/Toss_App_Icon.png' },
 };
 
 const styles = {
@@ -26,7 +26,7 @@ export default function App() {
           currentDevice={currentDevice} 
           onSelectDevice={setCurrentDevice}
         />
-        <RightPanel app={currentApp ? APPS[currentApp] : null} device={currentDevice} />
+        <RightPanel app={currentApp ? APPS[currentApp] : null} device={currentDevice} apps={APPS} />
       </div>
     </div>
   );

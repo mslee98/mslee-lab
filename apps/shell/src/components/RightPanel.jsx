@@ -10,7 +10,7 @@ const styles = {
   iframe: { width: '100%', height: '100%', border: 'none' },
 };
 
-export default function RightPanel({ app, device }) {
+export default function RightPanel({ app, device, apps }) {
   return (
     <div style={styles.right}>
       <DeviceFrameset device={device} landscape={false}>
@@ -19,7 +19,7 @@ export default function RightPanel({ app, device }) {
             // <iframe src={app.url} style={styles.iframe} />
             <KakaoBankApp/>
           ) : (
-            <IOSHome />
+            <IOSHome apps={apps} />
           )}
         </div>
       </DeviceFrameset>
