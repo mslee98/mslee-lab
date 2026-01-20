@@ -1,16 +1,18 @@
 {
-  "name": "a",
+  "name": "shell",
   "packageManager": "yarn@4.5.2",
   "scripts": {
-    "dev": "webpack serve --config webpack.config.js",
-    "build": "webpack --config webpack.config.js",
+    "dev": "NODE_ENV=development webpack serve --config webpack.config.js",
+    "build": "NODE_ENV=production webpack --config webpack.config.js",
     "prepare": "husky install"
   },
   "dependencies": {
-    "b": "workspace:*",
+    "kakaobank": "workspace:*",
     "react": "^19.2.3",
+    "react-device-frameset": "^1.3.4",
     "react-dom": "^19.2.3",
-    "react-router-dom": "^7.11.0"
+    "react-router-dom": "^7.11.0",
+    "toss": "workspace:*"
   },
   "devDependencies": {
     "@babel/core": "^7.28.5",
@@ -21,6 +23,7 @@
     "@types/react-dom": "^19.2.3",
     "babel-loader": "^10.0.0",
     "css-loader": "^7.1.2",
+    "dotenv": "^17.2.3",
     "html-webpack-plugin": "^5.6.5",
     "pnp-webpack-plugin": "^1.7.0",
     "style-loader": "^4.0.0",
