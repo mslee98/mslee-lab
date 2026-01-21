@@ -6,7 +6,7 @@ const APPS = {
   home: { name: 'Home', url: null, icon: null },
   kakaobank: { name: '카카오뱅크', icon: '/assets/appLogo/kakaobank_logo.jpeg', url: __KAKAOBANK_URL__ },
   toss: { name: '토스',icon: '/assets/appLogo/Toss_App_Icon.png', url: __TOSS_URL__ },
-  github: { name: '깃허브',icon: '/assets/appLogo/github_logo.png', url: null },
+  github: { name: '깃허브',icon: '/assets/appLogo/github_logo.png', url: 'https://github.com/mslee98', external: true },
 };
 
 const styles = {
