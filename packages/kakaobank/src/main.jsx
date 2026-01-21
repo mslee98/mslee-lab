@@ -1,8 +1,6 @@
 import { createRoot } from 'react-dom/client';
-import KakaoBankApp from './App';
-
 import './index.css'
-
+import KakaoBankApp from './App';
 
 const container = document.getElementById('root');
 const root = createRoot(container);

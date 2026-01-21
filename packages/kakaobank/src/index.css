@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body,
 #root {
@@ -5,8 +9,43 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 body {
+  cursor: none;
   overflow-x: hidden;
+  touch-action: pan-y;
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(8px);
+
+  pointer-events: none;
+  z-index: 9999;
+
+  transform: translate(-50%, -50%);
+  transition:
+    width 0.12s ease-out,
+    height 0.12s ease-out,
+    opacity 0.2s ease;
+
+  opacity: 0; /* 평소엔 거의 안 보임 */
+}
+
+/* 클릭 중 (터치 느낌) */
+.custom-cursor--active {
+  width: 16px;
+  height: 16px;
+  opacity: 1;
 }
