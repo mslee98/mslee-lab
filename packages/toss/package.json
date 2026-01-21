@@ -8,10 +8,10 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "b": "workspace:*",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
-    "react-router-dom": "^7.11.0"
+    "react-router-dom": "^7.11.0",
+    "share": "workspace:*"
   },
   "devDependencies": {
     "@babel/core": "^7.28.5",
