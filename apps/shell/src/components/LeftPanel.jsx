@@ -1,47 +1,36 @@
 import { memo, useCallback } from 'react';
 import DeviceMenuButton from './MenuButton';
 
-
-const styles = {
-  left: { flex: 1, paddingTop: 80 },
-  banner: { marginTop: 24, padding: 16, background: '#fff', borderRadius: 16, boxShadow: '0 8px 24px rgba(0,0,0,0.06)' },
-  menu: { marginTop: 32, display: 'flex', gap: 12 },
-  button: (active) => ({
-    padding: '10px 16px',
-    borderRadius: 12,
-    border: 'none',
-    cursor: 'pointer',
-    background: active ? '#000' : '#e5e7eb',
-    color: active ? '#fff' : '#111',
-  }),
-};
-
 const DEVICES = [
   { label: 'iPhone X', value: 'iPhone X' },
   { label: 'iPhone 8', value: 'iPhone 8' },
   { label: 'iPhone 8 Plus', value: 'iPhone 8 Plus' },
   { label: 'Galaxy Note 8', value: 'Galaxy Note 8' },
-  { label: 'Nexus 5', value: 'Nexus 5' },
-//   { label: 'iPad Mini', value: 'iPad Mini' },
-//   { label: 'MacBook Pro', value: 'MacBook Pro' },
 ];
 
-function LeftPanel({ apps, currentApp, onSelectApp, currentDevice, onSelectDevice }) {
+function LeftPanel({
+  apps,
+  currentApp,
+  onSelectApp,
+  currentDevice,
+  onSelectDevice,
+}) {
+  const handleSelectApp = useCallback(
+    (key) => onSelectApp(key),
+    [onSelectApp]
+  );
 
-
-  const handleSelectApp = useCallback((key) => {
-    onSelectApp(key);
-  }, [onSelectApp]);
-
-  const handleSelectDevice = useCallback( (value) => {
-    onSelectDevice(value);
-  }, [onSelectDevice]);
+  const handleSelectDevice = useCallback(
+    (value) => onSelectDevice(value),
+    [onSelectDevice]
+  );
 
   return (
-    <div style={styles.left}>
-      <h1 className="text-red text-lg">Ms Mobile Lab</h1>
+    <div className="flex-1 pt-20">
+      <h1 className="text-lg font-semibold">Ms Mobile Lab</h1>
 
-      <div style={styles.menu}>
+      {/* App Menu */}
+      <div className="mt-8 flex gap-3">
         {Object.entries(apps).map(([key, app]) => (
           <DeviceMenuButton
             key={key}
@@ -54,8 +43,9 @@ function LeftPanel({ apps, currentApp, onSelectApp, currentDevice, onSelectDevic
         ))}
       </div>
 
-      <h2 style={{ marginTop: 32 }}>디바이스 선택</h2>
-      <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+      {/* Device Selector */}
+      <h2 className="mt-8 text-base font-medium">디바이스 선택</h2>
+      <div className="mt-2 flex flex-wrap gap-2">
         {DEVICES.map((d) => (
           <DeviceMenuButton
             key={d.value}

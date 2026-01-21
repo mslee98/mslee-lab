@@ -37,6 +37,13 @@ module.exports = {
                     'postcss-loader',
                 ]
             },
+            {
+                test: /\.(png|jpe?g|gif|svg)$/i,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'assets/[name][ext]', // 빌드 후 dist/assets 폴더로 복사
+                },
+            },
         ]
     },
     plugins: [
@@ -60,15 +67,19 @@ module.exports = {
     //     plugins: [PnpWebpackPlugin.moduleLoader(module)], 이전버전 스타일 [PnpWebpackPlugin] 지금은 이렇게 사용해야함 
     // },
     devServer: {
-        static: {
-            directory: path.join(__dirname, "dist") // 빌드된 파일을 이 경로에서 서빙
-        },
+        static: [
+            { directory: path.join(__dirname, "dist")}, // 빌드된 파일을 이 경로에서 서빙
+            { directory: path.join(__dirname, "public") } // public 폴더도 serve => 이걸 안하면 절대경로시 pulbic이 알아서 안 생긴다.
+        ],
         port: 3010,
         open: true, // 서버 실행 시 브라우저 자동 열기
         hot: true, // HMR 사용
         historyApiFallback: true, // SPA 라우팅 지원
         client: {
             overlay: true // 에러 발생 시 브라우저에 띄움
+        },
+        headers: {
+            'Access-Control-Allow-Origin': '*'
         }
     }
 }
