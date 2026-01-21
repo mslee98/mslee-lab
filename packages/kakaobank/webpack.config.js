@@ -69,6 +69,9 @@ module.exports = {
         historyApiFallback: true, // SPA 라우팅 지원
         client: {
             overlay: true // 에러 발생 시 브라우저에 띄움
+        },
+        headers: {
+            'Access-Control-Allow-Origin': '*'
         }
     }
 }
