@@ -38,7 +38,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(png|jpe?g|gif|svg)$/i,
+                test: /\.(png|jpe?g|gif|svg|webp)$/i,
                 type: 'asset/resource',
                 generator: {
                     filename: 'assets/[name][ext]', // 빌드 후 dist/assets 폴더로 복사
@@ -82,5 +82,12 @@ module.exports = {
           headers: { 'Access-Control-Allow-Origin': '*' },
         },
       }
-    : {}),
+    : {
+        optimization: {
+            minimize: true,
+            splitChunks: {
+                chunks: 'all'
+            }
+        },
+    }),
 }
