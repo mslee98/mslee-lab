@@ -47,7 +47,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(png|jpe?g|gif|svg|webp)$/i,
+                test: /\.(png|jpe?g|gif|svg|webp)$/i, // webp 추가
                 type: 'asset/resource',
                 generator: {
                     filename: 'assets/[name][ext]', // 빌드 후 dist/assets 폴더로 복사

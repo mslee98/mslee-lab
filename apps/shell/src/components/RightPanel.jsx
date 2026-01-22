@@ -13,6 +13,7 @@ function RightPanel({ currentApp, app, device, apps, onSelectApp }) {
 
 
   const [status, setStatus] = useState('idle');
+  const isDark = Boolean(app?.dark);
 
   const isHome = !currentApp || currentApp === 'home';
 
@@ -77,8 +78,8 @@ function RightPanel({ currentApp, app, device, apps, onSelectApp }) {
           style={{ backgroundImage: `url(${iPhoneBgDefault})` }}
         >
           {/* StatusBar */}
-          <div className="relative z-10">
-            <StatusBar />
+          <div className="relative z-50">
+            <StatusBar isDark={isDark}/>
           </div>
 
           {/* App Area */}

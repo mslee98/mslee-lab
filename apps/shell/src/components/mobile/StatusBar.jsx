@@ -1,7 +1,8 @@
 import { memo, useEffect, useState } from 'react';
 import batteryWhite from '../../assets/battery-white.png';
+import batteryDark from '../../assets/battery-dark.png';
 
-function StatusBar() {
+function StatusBar({isDark}) {
   const [time, setTime] = useState(getTime());
 
   useEffect(() => {
@@ -13,10 +14,25 @@ function StatusBar() {
   }, []);
 
   return (
-    <div style={styles.bar}>
-      <div style={styles.left}>{time}</div>
-      <div style={styles.right}>
-        <img src={batteryWhite}/>
+    <div
+      className={`
+        absolute top-2 left-0 w-full h-6
+        flex items-center justify-between
+        ${isDark ? 'text-white' : 'text-black'}
+        text-[15px] 
+        font-medium
+        pointer-events-none
+        font-[-apple-system,BlinkMacSystemFont,sans-serif]
+      `}
+    >
+      {/* Left: Time */}
+      <div className="pl-[calc(28px+env(safe-area-inset-left))]">
+        {time}
+      </div>
+
+      {/* Right: Battery */}
+      <div className="pr-[calc(28px+env(safe-area-inset-right))]">
+        <img src={isDark ? batteryWhite : batteryDark} alt="battery" className="h-4" />
       </div>
     </div>
   );
@@ -29,30 +45,6 @@ function getTime() {
   return now.toLocaleTimeString('ko-KR', {
     hour: '2-digit',
     minute: '2-digit',
-    hour12: false // 오전/오후 텍스트 제거
+    hour12: false,
   });
 }
-
-const styles = {
-  bar: {
-    position: 'absolute',
-    top: 10,
-    left: 0,
-    height: 24,
-    width: '100%',
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    color: '#ffffff',
-    fontSize: 15,
-    fontWeight: 500,
-    pointerEvents: 'none',
-    fontFamily: '-apple-system, BlinkMacSystemFont, sans-serif',
-  },
-  left: {
-    paddingLeft: 'calc(28px + env(safe-area-inset-left))',
-  },
-  right: {
-    paddingRight: 'calc(28px + env(safe-area-inset-right))',
-  },
-};
