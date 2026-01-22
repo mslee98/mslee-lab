@@ -75,7 +75,7 @@ function RightPanel({ currentApp, app, device, apps, onSelectApp }) {
           style={{ backgroundImage: 'url(/assets/iPhone.png)' }}
         >
           {/* StatusBar */}
-          <div className="shrink-0">
+          <div className="relative z-10">
             <StatusBar />
           </div>
 
