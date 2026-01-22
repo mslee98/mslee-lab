@@ -6,8 +6,16 @@ export default function MainScreen() {
   return (
     <div className="w-full h-screen flex flex-col bg-gray-100 pt-8">
       {/* 콘텐츠 영역 */}
-      <main className="auto-hide-scrollbar flex-1 overflow-y-auto p-4 touch-pan-y" ref={scrollRef}>
-        <div className="h-full rounded-xl bg-white shadow flex items-center justify-center">
+      <main className="
+        auto-hide-scrollbar 
+        flex-1 
+        overflow-y-auto 
+        p-4 
+        touch-pan-y
+        pr-[calc(1rem-3px)] 
+        " 
+        ref={scrollRef}>
+        <div className="relative h-full rounded-xl bg-white shadow flex items-center justify-center">
           <span className="text-gray-800 text-xl font-semibold">
             KakaoBank Content Area
           </span>
