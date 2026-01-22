@@ -1,0 +1,9 @@
+[build]
+  base = "."
+  command = "yarn workspace kakaobank build"
+  publish = "packages/kakaobank/dist"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
