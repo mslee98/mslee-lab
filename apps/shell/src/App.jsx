@@ -2,11 +2,15 @@ import { useState } from 'react';
 import LeftPanel from './components/LeftPanel';
 import RightPanel from './components/RightPanel';
 
+import kakaobank from './assets/appLogo/kakaobank_icon.webp';
+import toss from './assets/appLogo/toss_icon.webp';
+import github from './assets/appLogo/github_icon.webp';
+
 const APPS = {
   home: { name: 'Home', url: null, icon: null },
-  kakaobank: { name: '카카오뱅크', icon: '/assets/appLogo/kakaobank_logo.jpeg', url: __KAKAOBANK_URL__ },
-  toss: { name: '토스',icon: '/assets/appLogo/Toss_App_Icon.png', url: __TOSS_URL__ },
-  github: { name: '깃허브',icon: '/assets/appLogo/github_logo.png', url: null },
+  kakaobank: { name: '카카오뱅크', icon: kakaobank, url: __KAKAOBANK_URL__ },
+  toss: { name: '토스',icon: toss, url: __TOSS_URL__ },
+  github: { name: '깃허브',icon: github, url: 'https://github.com/mslee98', external: true },
 };
 
 const styles = {

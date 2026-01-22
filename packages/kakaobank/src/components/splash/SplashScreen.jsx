@@ -1,6 +1,8 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
+import kakaobankLoadingIconBlack from '../../assets/kakaobank-loading-icon-black.webp'
+
 const easeIOS = [0.22, 1, 0.36, 1];
 
 export default function SplashScreen({ onFinish }) {
@@ -27,7 +29,7 @@ export default function SplashScreen({ onFinish }) {
         >
           {/* LOGO */}
           <motion.img
-            src="/assets/appLogo/Digital_Signature_Vertical_Primary_Black.png"
+            src={kakaobankLoadingIconBlack}
             alt="KakaoBank"
             className="w-28 h-28"
             initial={{ scale: 0.7, y: 40, opacity: 0 }}

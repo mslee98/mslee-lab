@@ -1,5 +1,5 @@
 {
-  "name": "b",
+  "name": "share",
   "packageManager": "yarn@4.5.2",
   "main": "index.js",
   "dependencies": {

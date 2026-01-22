@@ -17,8 +17,9 @@ module.exports = {
     mode,
     entry: './src/main.jsx',
     output: {
-        filename: 'bundle.js',
+        filename: '[name].[contenthash].js', // 이름을 고정시키면 chunk spliting이 불가능하다.
         path: path.resolve(__dirname, 'dist'),
+        clean: true, // 이전 빌드 파일 삭제
     },
     module: {
         rules: [
@@ -46,7 +47,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(png|jpe?g|gif|svg)$/i,
+                test: /\.(png|jpe?g|gif|svg|webp)$/i,
                 type: 'asset/resource',
                 generator: {
                     filename: 'assets/[name][ext]', // 빌드 후 dist/assets 폴더로 복사
@@ -78,17 +79,28 @@ module.exports = {
     resolveLoader: {
         plugins: [PnpWebpackPlugin]
     },
-    devServer: {
-        static: [
-            { directory: path.join(__dirname, "dist")}, // 빌드된 파일을 이 경로에서 서빙
-            { directory: path.join(__dirname, "public") } // public 폴더도 serve => 이걸 안하면 절대경로시 pulbic이 알아서 안 생긴다.
-        ],
-        port: 3000,
-        open: true, // 서버 실행 시 브라우저 자동 열기
-        hot: true, // HMR 사용
-        historyApiFallback: true, // SPA 라우팅 지원
-        client: {
-            overlay: true // 에러 발생 시 브라우저에 띄움
+    ...(mode === 'development'
+    ? {
+        // 개발용 devServer만 적용
+        devServer: {
+            static: [
+            { directory: path.join(__dirname, "dist") }, // 해당 디렉토리들은 devServer에서만 보임
+            { directory: path.join(__dirname, "public") }, //
+            ],
+            port: 4010,
+            open: true,
+            hot: true,
+            historyApiFallback: true,
+            client: { overlay: true },
+            // headers: { 'Access-Control-Allow-Origin': '*' },
+        },
         }
-    }
+    : {
+        optimization: {
+            minimize: true,
+            splitChunks: {
+                chunks: 'all'
+            }
+        },
+    }),
 }

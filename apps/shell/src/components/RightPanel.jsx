@@ -7,6 +7,8 @@ import AppContent from './mobile/AppContent';
 import StatusBar from './mobile/StatusBar';
 import IOSErrorModal from './common/IOSErrorModal';
 
+import iPhoneBgDefault from '../assets/iPhone_bg_default.png'
+
 function RightPanel({ currentApp, app, device, apps, onSelectApp }) {
 
 
@@ -72,10 +74,10 @@ function RightPanel({ currentApp, app, device, apps, onSelectApp }) {
             cursor-default
             bg-cover bg-center
           "
-          style={{ backgroundImage: 'url(/assets/iPhone.png)' }}
+          style={{ backgroundImage: `url(${iPhoneBgDefault})` }}
         >
           {/* StatusBar */}
-          <div className="shrink-0">
+          <div className="relative z-10">
             <StatusBar />
           </div>
 

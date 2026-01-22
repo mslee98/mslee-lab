@@ -1,4 +1,5 @@
 import { memo, useEffect, useState } from 'react';
+import batteryWhite from '../../assets/battery-white.png';
 
 function StatusBar() {
   const [time, setTime] = useState(getTime());
@@ -15,7 +16,7 @@ function StatusBar() {
     <div style={styles.bar}>
       <div style={styles.left}>{time}</div>
       <div style={styles.right}>
-        <img src='/assets/Battery.png'/>
+        <img src={batteryWhite}/>
       </div>
     </div>
   );
