@@ -13,6 +13,8 @@ const APPS = {
   github: { name: '깃허브',icon: github, url: 'https://github.com/mslee98', external: true },
 };
 
+console.log("APPS",APPS)
+
 const styles = {
   page: { minHeight: '100vh', background: '#f7f8fa', display: 'flex', justifyContent: 'center', alignItems: 'center' },
   container: { width: 1200, display: 'flex', gap: 80 },
