@@ -9,11 +9,23 @@ export default function Event1() {
 
   return (
     <>
-        <div>
-            <h2 className="text-3xl font-bold mb-4 my-20 text-white">텍스트 하이라이트 스크롤링 </h2>
-        </div>
-        
-      {/* 단어 스크롤 연출 */}
+      {/* 상단 인트로 */}
+      <section className="pt-24 pb-32 text-center text-white">
+        <p className="text-sm opacity-60 mb-3">
+          KAKAO BANK EXPERIENCE
+        </p>
+
+        <h2 className="text-4xl font-extrabold leading-tight">
+          스크롤로 느끼는<br />
+          새로운 금융 경험
+        </h2>
+
+        <p className="mt-6 text-sm opacity-50">
+          천천히 내려보세요
+        </p>
+      </section>
+
+      {/* 단어 하이라이트 연출 */}
       <HighlightWords />
     </>
   );
@@ -89,7 +101,7 @@ function HighlightWords() {
   }, []);
 
   return (
-    <section className="py- space-y-16 text-center">
+    <section className="relative py-[40vh] flex flex-col items-center gap-20">
       {words.map((word, i) => (
         <p
           key={i}

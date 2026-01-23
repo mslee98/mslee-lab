@@ -31,3 +31,8 @@
     transform: scale(1.05);
   }
 }
+
+/* 여백감 */
+.highlight-word:not(:last-child) {
+  margin-bottom: 2rem;
+}
