@@ -8,7 +8,7 @@ import github from './assets/appLogo/github_icon.webp';
 
 const APPS = {
   home: { name: 'Home', url: null, icon: null, dark: true },
-  kakaobank: { name: '카카오뱅크', icon: kakaobank, url: __KAKAOBANK_URL__, dark: false},
+  kakaobank: { name: '카카오뱅크', icon: kakaobank, url: __KAKAOBANK_URL__, dark: true},
   toss: { name: '토스',icon: toss, url: __TOSS_URL__ },
   github: { name: '깃허브',icon: github, url: 'https://github.com/mslee98', external: true },
 };

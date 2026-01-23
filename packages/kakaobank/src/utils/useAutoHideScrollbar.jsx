@@ -1,5 +1,9 @@
 import { useEffect, useRef } from 'react';
 
+/**
+ * 스크롤을 진행할 때 만 스크롤이 나타나게 한다.
+ * 
+ */
 export function useAutoHideScrollbar() {
   const ref = useRef(null);
   const timerRef = useRef(null);
