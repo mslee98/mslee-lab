@@ -9,11 +9,14 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.5.0",
     "framer-motion": "^12.27.5",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "react-router-dom": "^7.11.0",
-    "share": "workspace:*"
+    "share": "workspace:*",
+    "three": "^0.182.0"
   },
   "devDependencies": {
     "@babel/core": "^7.28.5",
