@@ -1,13 +1,16 @@
-import { useIOSBackSwipe } from './useIOSBackSwipe';
 import CustomCursor from './CustomCursor';
-import MobileViewport from './components/common/MobileViewport';
-import { MobileDevWrapper } from './components/common/MobileDevWrapper';
+import Home from './pages/Home';
+import Layout from './components/Layout';
+// import MobileViewport from './components/common/MobileViewport';
+// import { MobileDevWrapper } from './components/common/MobileDevWrapper';
 
 import SplashScreen from './components/splash/SplashScreen';
 import { useState } from 'react';
 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Event1 from './pages/Event1';
+
 export default function KakaoBankApp() {
-  useIOSBackSwipe();
 
   const [ready, setReady] = useState(false);
 
@@ -15,11 +18,22 @@ export default function KakaoBankApp() {
 
   return (
     <>
+      <Router>
       <div className='w-screen h-screen'>
         <CustomCursor />
 
-          {!ready && <SplashScreen onFinish={() => setReady(true)} />}
-          {ready && <MainScreen />}
+        {ready ? (
+          <Routes>
+
+            <Route element={<Layout/>}>
+              <Route path="/" element={<Home />} />
+              <Route path="/event1" element={<Event1 />} />
+            </Route>
+            {/* 다른 페이지도 여기에 추가 */}
+          </Routes>
+        ) : (
+          <SplashScreen onFinish={() => setReady(true)} />
+        )}
       </div>
 
       {/* 해당 프로젝트를 독립적으로 실행시켜 개발이 필요한 경우 */}
@@ -31,15 +45,8 @@ export default function KakaoBankApp() {
           {ready && <MainScreen />}
         </MobileViewport>
       </MobileDevWrapper> */}
+      </Router>
     </>
     
   )
-}
-
-function MainScreen() {
-  return (
-    <div className="w-full h-full bg-red-500 flex items-center justify-center">
-      <span className="text-white text-4xl">Kakao Bank App</span>
-    </div>
-  );
 }

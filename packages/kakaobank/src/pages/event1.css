@@ -1,0 +1,33 @@
+.highlight-word {
+  color: rgba(255, 255, 255, 0.25);
+  filter: blur(1px);
+  transform: scale(0.9);
+  transition:
+    color 0.1s ease,
+    filter 0.1s ease,
+    transform 0.1s ease;
+}
+
+/* 활성 상태 (유지) */
+.highlight-word[data-active='1'] {
+  color: #ffffff;
+  filter: blur(0);
+  transform: scale(1.05);
+}
+
+/* 등장 순간 애니메이션 */
+.highlight-word[data-animate='1'] {
+  animation: pop 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.9);
+  }
+  60% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
