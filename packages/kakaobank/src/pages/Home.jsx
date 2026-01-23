@@ -5,31 +5,21 @@ import hero from '../assets/logo/plus.svg'
 
 // pr-[calc(1rem-3px)] 
 
-export default function MainScreen() {
-  const scrollRef = useAutoHideScrollbar();
+export default function Home() {
 
   return (
-    <div className="w-full h-screen bg-[#1c1c1e] flex flex-col">
-      <div
-        ref={scrollRef}
-        className="flex-1 overflow-y-auto auto-hide-scrollbar"
-      >
-        <main className="px-4 pt-8 pb-24 space-y-6">
+    <>
+      <QuickActions />
 
-          <QuickActions />
-
-          {/* 계좌 카드 */}
-          <div className="space-y-4">
-            <MainAccountCard />
-            <GroupAccountCard />
-            <AccountCard isEmpty />
-            <PlusCard/>
-          </div>
-        </main>
+      {/* 계좌 카드 */}
+      <div className="space-y-4">
+        <MainAccountCard />
+        <GroupAccountCard />
+        <AccountCard isEmpty />
+        <PlusCard/>
       </div>
-
-      <BottomNav />
-    </div>
+    </>
+          
   );
 }
 
@@ -154,25 +144,5 @@ function PlusCard() {
       </div>
     </div>
   )
-}
-
-function BottomNav() {
-  return (
-    <nav className="
-      h-20
-      bg-[#1c1c1e]
-      border-t border-white/10
-      flex justify-around items-center
-      text-white/60
-      text-xs
-    ">
-      {['홈', '혜택', 'AI', '상품', '전체'].map(label => (
-        <button key={label} className="flex flex-col items-center gap-1">
-          <div className="w-6 h-6 bg-white/20 rounded-md" />
-          {label}
-        </button>
-      ))}
-    </nav>
-  );
 }
 

@@ -1,5 +1,6 @@
 import CustomCursor from './CustomCursor';
-import MainScreen from './pages/MainScreen';
+import Home from './pages/Home';
+import Layout from './components/Layout';
 // import MobileViewport from './components/common/MobileViewport';
 // import { MobileDevWrapper } from './components/common/MobileDevWrapper';
 
@@ -23,8 +24,11 @@ export default function KakaoBankApp() {
 
         {ready ? (
           <Routes>
-            <Route path="/" element={<MainScreen />} />
-            <Route path="/event1" element={<Event1 />} />
+
+            <Route element={<Layout/>}>
+              <Route path="/" element={<Home />} />
+              <Route path="/event1" element={<Event1 />} />
+            </Route>
             {/* 다른 페이지도 여기에 추가 */}
           </Routes>
         ) : (
