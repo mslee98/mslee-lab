@@ -1,32 +1,18 @@
-import './event1.css';
+import './event2.css';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
-import Lottie from "lottie-react";
-import scrollDownAnimation from '../assets/lotties/ScrollDownAnimation.json';
-
 // 참고
 // https://framer.university/resources/scroll-highlight-animation-override-for-framer
-export default function Event1() {
+export default function Event2() {
   const navigate = useNavigate();
 
   return (
-    <div className="relative bg-[#1f1f1f] min-h-screen">
-      {/* 뒤로가기 화살표 */}
-      <button
-        onClick={() => navigate(-1)}
-        className="absolute top-6 left-6 p-2 rounded-full hover:bg-white/20 transition text-white"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-        </svg>
-
-      </button>
-
+    <>
       {/* 상단 인트로 */}
       <section className="pt-24 pb-32 text-center text-white">
         <p className="text-sm opacity-60 mb-3">
-          KAKAO BANK EXPERIENCE
+          KAKAO BANK EXPERIENCE2
         </p>
 
         <h2 className="text-4xl font-extrabold leading-tight">
@@ -37,18 +23,11 @@ export default function Event1() {
         <p className="mt-6 text-sm opacity-50">
           천천히 내려보세요
         </p>
-
-        {/* webm 영상 */}
-        <Lottie 
-            animationData={scrollDownAnimation} 
-            loop={true} 
-            className="w-64 h-64 mx-auto mt-6"
-        />
       </section>
 
       {/* 단어 하이라이트 연출 */}
       <HighlightWords />
-    </div>
+    </>
   );
 }
 

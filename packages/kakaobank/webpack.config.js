@@ -37,6 +37,12 @@ module.exports = {
                     'postcss-loader',
                 ]
             },
+            // {
+            //     // SVG는 이미지 assets/resource 규칙보다 위에 있어야한다.
+            //     test: /\.svg$/i,
+            //     issuer: /\.[jt]sx?$/,
+            //     use: ['@svgr/webpack']
+            // },
             {
                 test: /\.(png|jpe?g|gif|svg|webp)$/i,
                 type: 'asset/resource',
