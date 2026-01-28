@@ -1,6 +1,6 @@
 import CustomCursor from './CustomCursor';
-import Home from './pages/Home/Home';
-import Layout from './components/Layout';
+import Home from '@pages/Home'
+import Layout from '@components/layouts/Layout';
 // import MobileViewport from './components/common/MobileViewport';
 // import { MobileDevWrapper } from './components/common/MobileDevWrapper';
 
@@ -8,14 +8,15 @@ import SplashScreen from './components/splash/SplashScreen';
 import { useState } from 'react';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Event1 from './pages/ScrollEvent/Event1';
-import Event2 from './pages/Event2';
+import Event1 from '@pages/ScrollEvent';
+import Event2 from '@pages/Event2';
 
 export default function KakaoBankApp() {
 
   const [ready, setReady] = useState(true);
 
   const isDev = process.env.NODE_ENV === 'development';
+  // isDev를 누르면 픽셀별로 화면 선택할 수 있는 기능을 만들어야하 듯?
 
   return (
     <>
