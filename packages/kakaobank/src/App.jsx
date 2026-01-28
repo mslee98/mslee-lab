@@ -8,12 +8,12 @@ import SplashScreen from './components/splash/SplashScreen';
 import { useState } from 'react';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Event1 from './pages/Event1';
+import Event1 from './pages/ScrollEvent/Event1';
 import Event2 from './pages/Event2';
 
 export default function KakaoBankApp() {
 
-  const [ready, setReady] = useState(false);
+  const [ready, setReady] = useState(true);
 
   const isDev = process.env.NODE_ENV === 'development';
 

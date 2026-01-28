@@ -7,7 +7,7 @@ import hanaLogo from '../assets/logo/hana.svg';
 
 import { Link } from 'react-router-dom'
 
-import Event1 from './Event1';
+import Event1 from './ScrollEvent/Event1';
 import Event2 from './Event2';
 
 // pr-[calc(1rem-3px)] 
