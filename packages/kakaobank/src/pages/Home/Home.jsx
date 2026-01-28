@@ -1,22 +1,16 @@
 // import { useAutoHideScrollbar } from '../utils/useAutoHideScrollbar';
 // import QuickActions from '../components/home/QuickActions';
 
-import plus from '../assets/logo/plus.svg';
-import kakaobankLogo from '../assets/logo/Digital_Symbol_Secondary_White.svg';
-import hanaLogo from '../assets/logo/hana.svg';
+// import plus from '../assets/logo/plus.svg';
+import kakaobankLogo from '../../assets/logo/kakabank_symbol_white.svg';
+import hanaLogo from '../../assets/logo/hana.svg';
 
 import { Link } from 'react-router-dom'
-
-import Event1 from './ScrollEvent/Event1';
-import Event2 from './Event2';
-
-// pr-[calc(1rem-3px)] 
 
 export default function Home() {
 
   return (
     <>
-      {/* <QuickActions /> */}
 
       {/* 계좌 카드 */}
       <div className="mt-4 space-y-4">
@@ -227,10 +221,10 @@ function PlusCard() {
   return (
      <div className="rounded-2xl bg-[#2c2c2e] p-5 text-white">
       <div className="flex justify-center items-center">
-        <img src={plus} className="w-6 h-6"/>
-        
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+        </svg>
       </div>
     </div>
   )
 }
-

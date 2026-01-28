@@ -1,5 +1,5 @@
 import CustomCursor from './CustomCursor';
-import Home from './pages/Home';
+import Home from './pages/Home/Home';
 import Layout from './components/Layout';
 // import MobileViewport from './components/common/MobileViewport';
 // import { MobileDevWrapper } from './components/common/MobileDevWrapper';
