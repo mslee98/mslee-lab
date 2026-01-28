@@ -1,9 +1,9 @@
-import './event1.css';
+import './index.css';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
 import Lottie from "lottie-react";
-import scrollDownAnimation from '../assets/lotties/ScrollDownAnimation.json';
+import scrollDownAnimation from '../../assets/lotties/ScrollDownAnimation.json';
 
 // 참고
 // https://framer.university/resources/scroll-highlight-animation-override-for-framer
@@ -17,14 +17,14 @@ export default function Event1() {
         onClick={() => navigate(-1)}
         className="absolute top-6 left-6 p-2 rounded-full hover:bg-white/20 transition text-white"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
         </svg>
 
       </button>
 
       {/* 상단 인트로 */}
-      <section className="pt-24 pb-32 text-center text-white">
+      <section className="pt-24 text-center text-white">
         <p className="text-sm opacity-60 mb-3">
           KAKAO BANK EXPERIENCE
         </p>
@@ -38,7 +38,7 @@ export default function Event1() {
           천천히 내려보세요
         </p>
 
-        {/* webm 영상 */}
+        {/* Lottie Json 영상 */}
         <Lottie 
             animationData={scrollDownAnimation} 
             loop={true} 

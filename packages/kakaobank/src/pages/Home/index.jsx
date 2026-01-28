@@ -1,22 +1,10 @@
-// import { useAutoHideScrollbar } from '../utils/useAutoHideScrollbar';
-// import QuickActions from '../components/home/QuickActions';
-
-import plus from '../assets/logo/plus.svg';
-import kakaobankLogo from '../assets/logo/Digital_Symbol_Secondary_White.svg';
-import hanaLogo from '../assets/logo/hana.svg';
-
-import { Link } from 'react-router-dom'
-
-import Event1 from './Event1';
-import Event2 from './Event2';
-
-// pr-[calc(1rem-3px)] 
+import { plusIcon, hanaSymbolLogo, kakaobankSymbolWhiteLogo } from 'share';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
 
   return (
     <>
-      {/* <QuickActions /> */}
 
       {/* 계좌 카드 */}
       <div className="mt-4 space-y-4">
@@ -31,9 +19,6 @@ export default function Home() {
   );
 }
 
-
-// import { ReactComponent as KakaoBankLogo } from '../assets/logo/Digital_Symbol_Secondary_White.svg';
-
 function MainAccountCard() {
   return (
     <div className="rounded-2xl bg-[#2c2c2e] p-5 text-white">
@@ -42,7 +27,7 @@ function MainAccountCard() {
       <div className="flex items-center gap-3">
         {/* 은행 로고 */}
         <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
-          <img src={kakaobankLogo} className="w-5 h-5"/>
+          <img src={kakaobankSymbolWhiteLogo} className="w-5 h-5"/>
         </div>
 
         {/* 통장 정보 */}
@@ -146,7 +131,7 @@ function GroupAccountCard() {
           <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
             {/* 이미지 넣기 */}
             <img
-              src={hanaLogo}
+              src={hanaSymbolLogo}
               alt="통장 로고"
               className="w-6 h-6 rounded-full"
             />
@@ -227,10 +212,9 @@ function PlusCard() {
   return (
      <div className="rounded-2xl bg-[#2c2c2e] p-5 text-white">
       <div className="flex justify-center items-center">
-        <img src={plus} className="w-6 h-6"/>
         
+        <img src={plusIcon} className="w-6 h-6"/>
       </div>
     </div>
   )
 }
-
