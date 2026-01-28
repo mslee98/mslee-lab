@@ -41,7 +41,7 @@ module.exports = {
             //     // SVG는 이미지 assets/resource 규칙보다 위에 있어야한다.
             //     test: /\.svg$/i,
             //     issuer: /\.[jt]sx?$/,
-            //     use: ['@svgr/webpack']
+            //     use: ['@svgr/webpack'],
             // },
             {
                 test: /\.(png|jpe?g|gif|svg|webp)$/i,
@@ -62,7 +62,10 @@ module.exports = {
     resolve: {
         extensions: ['.tsx', '.ts', '.jsx', '.js'],
         alias: {
-        '@': path.resolve(__dirname, './src'),
+        // '@': path.resolve(__dirname, './src'),
+        '@components': path.resolve(__dirname, 'src/components'),
+        '@pages': path.resolve(__dirname, 'src/pages'),
+        '@utils': path.resolve(__dirname, 'src/utils')
         },
         plugins: [PnpWebpackPlugin]
     },
