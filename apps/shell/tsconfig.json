@@ -1,13 +1,11 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "baseUrl": ".",
     "jsx": "react-jsx",
-    "jsxImportSource": "@emotion/react",
-    "baseUrl": ".",
     "composite": true,
     "declaration": true,
-    "types": ["jest"],
+    "types": ["react", "jest"],
     "plugins": [
       {
         "name": "typescript-styled-plugin",
@@ -15,10 +13,13 @@
       }
     ],
     "paths": {
+      "@": ["src"],
       "@components/*": ["src/components/*"],
       "@pages/*": ["src/pages/*"],
       "@assets/*": ["src/assets/*"],
-      "@utils/*": ["src/utils/*"]
+      "@utils/*": ["src/utils/*"],
+      "@configs/*": ["src/configs/*"],
+      "@contexts/*": ["src/contexts/*"]
     }
   },
   "include": [

@@ -41,3 +41,12 @@ perf: reduce draw calls in r3f scene
 perf: memoize expensive selector
 perf: apply draco compression
 
+
+
+###
+
+```bash
+yarn dlx @yarnpkg/sdks vscode
+```
+
+실생시 .yarn/sdks 가 생성되며 TS설정 시 모듈을 못 찾아오는 무넺를 해결함
