@@ -1,7 +1,7 @@
 {
   "name": "shell",
   "packageManager": "yarn@4.5.2",
-  "main": "src/main.jsx",
+  "main": "src/main.tsx",
   "scripts": {
     "dev": "NODE_ENV=development webpack serve --config webpack.config.js",
     "start": "NODE_ENV=production webpack serve --config webpack.config.js",

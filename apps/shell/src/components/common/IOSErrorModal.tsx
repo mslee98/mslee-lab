@@ -1,10 +1,19 @@
-import React, { memo } from 'react';
+import { memo } from "react";
 
-export default memo(function IOSErrorModal({
-  title = '오류',
-  message = '앱 서버가 실행되지 않았습니다.',
+interface IOSErrorModalProps {
+  /** 모달 제목 */
+  title?: string;
+  /** 모달 메시지 */
+  message?: string;
+  /** 닫기 버튼 클릭 콜백 */
+  onClose: () => void;
+}
+
+const IOSErrorModal = memo(function IOSErrorModal({
+  title = "오류",
+  message = "앱 서버가 실행되지 않았습니다.",
   onClose,
-}) {
+}: IOSErrorModalProps) {
   return (
     <div
       className="
@@ -30,14 +39,13 @@ export default memo(function IOSErrorModal({
           <div className="mb-[6px] text-[17px] font-semibold text-black">
             {title}
           </div>
-          <div className="text-[13px] leading-[1.4] text-black">
-            {message}
-          </div>
+          <div className="text-[13px] leading-[1.4] text-black">{message}</div>
         </div>
 
         {/* Button */}
         <div className="border-t border-black/15">
           <button
+            type="button"
             onClick={onClose}
             className="
               w-full py-3
@@ -56,3 +64,5 @@ export default memo(function IOSErrorModal({
     </div>
   );
 });
+
+export default IOSErrorModal;
