@@ -1929,6 +1929,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@giscus/react@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "@giscus/react@npm:3.1.0"
+  dependencies:
+    giscus: "npm:^1.6.0"
+  peerDependencies:
+    react: ^16 || ^17 || ^18 || ^19
+    react-dom: ^16 || ^17 || ^18 || ^19
+  checksum: 10c0/1347b3a729917a7c134dbf38ff4e15189d37447db3453dfbcb0a76b58f6044a32040d197a0744a093682bcefea14e27b8167dfe30f55d79f3f415054092104c9
+  languageName: node
+  linkType: hard
+
 "@heroicons/react@npm:^2.2.0":
   version: 2.2.0
   resolution: "@heroicons/react@npm:2.2.0"
@@ -2115,6 +2127,22 @@ __metadata:
   version: 2.0.5
   resolution: "@leichtgewicht/ip-codec@npm:2.0.5"
   checksum: 10c0/14a0112bd59615eef9e3446fea018045720cd3da85a98f801a685a818b0d96ef2a1f7227e8d271def546b2e2a0fe91ef915ba9dc912ab7967d2317b1a051d66b
+  languageName: node
+  linkType: hard
+
+"@lit-labs/ssr-dom-shim@npm:^1.5.0":
+  version: 1.5.1
+  resolution: "@lit-labs/ssr-dom-shim@npm:1.5.1"
+  checksum: 10c0/2b10a42db0af33a4db32b3aa34db0f546aaa6794acdfc173499e999b4423102a1c9d15687679c674f07fa799cf740b5f5641c2ca6eee5d4af30c762a1e3b8c4f
+  languageName: node
+  linkType: hard
+
+"@lit/reactive-element@npm:^2.1.0":
+  version: 2.1.2
+  resolution: "@lit/reactive-element@npm:2.1.2"
+  dependencies:
+    "@lit-labs/ssr-dom-shim": "npm:^1.5.0"
+  checksum: 10c0/557069ce6ebbbafb1140e1e0a25ce73d3501bf455cda231d42bb131baa9065c54b6b7ca1655507eede397decd7ddde16c84192cb72a07d4edf41d54e07725933
   languageName: node
   linkType: hard
 
@@ -2821,6 +2849,13 @@ __metadata:
   version: 1.0.3
   resolution: "@types/treeify@npm:1.0.3"
   checksum: 10c0/758902638ff83a790c13359729d77aeb80aae50f7039670037e3a0ba2bcc7b09dd49173ab21a96946d83af1682fcd70e448e49151ecd46e190f8925077142d4a
+  languageName: node
+  linkType: hard
+
+"@types/trusted-types@npm:^2.0.2":
+  version: 2.0.7
+  resolution: "@types/trusted-types@npm:2.0.7"
+  checksum: 10c0/4c4855f10de7c6c135e0d32ce462419d8abbbc33713b31d294596c0cc34ae1fa6112a2f9da729c8f7a20707782b0d69da3b1f8df6645b0366d08825ca1522e0c
   languageName: node
   linkType: hard
 
@@ -5454,6 +5489,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"giscus@npm:^1.6.0":
+  version: 1.6.0
+  resolution: "giscus@npm:1.6.0"
+  dependencies:
+    lit: "npm:^3.2.1"
+  checksum: 10c0/2dc96e45591b38bbf8db7c9a0efbb25f598e57522cd90ca0cad23d573f88f5adbe4411c0c4cf61231f6dca57531d6fe4fbbcd12be78681cba3aa218eb4584e11
+  languageName: node
+  linkType: hard
+
 "glob-parent@npm:^5.1.2, glob-parent@npm:~5.1.2":
   version: 5.1.2
   resolution: "glob-parent@npm:5.1.2"
@@ -6359,6 +6403,37 @@ __metadata:
     rfdc: "npm:^1.4.1"
     wrap-ansi: "npm:^9.0.0"
   checksum: 10c0/46448d1ba0addc9d71aeafd05bb8e86ded9641ccad930ac302c2bd2ad71580375604743e18586fcb8f11906edf98e8e17fca75ba0759947bf275d381f68e311d
+  languageName: node
+  linkType: hard
+
+"lit-element@npm:^4.2.0":
+  version: 4.2.2
+  resolution: "lit-element@npm:4.2.2"
+  dependencies:
+    "@lit-labs/ssr-dom-shim": "npm:^1.5.0"
+    "@lit/reactive-element": "npm:^2.1.0"
+    lit-html: "npm:^3.3.0"
+  checksum: 10c0/114ab5837f1f9e03a30b1ed1c055fa0e31f01e444464e5ab0453ef88be12d778508235533267c42614d323e3048ee58f865b5c612948a53bd6219abca404c710
+  languageName: node
+  linkType: hard
+
+"lit-html@npm:^3.3.0":
+  version: 3.3.2
+  resolution: "lit-html@npm:3.3.2"
+  dependencies:
+    "@types/trusted-types": "npm:^2.0.2"
+  checksum: 10c0/0a6763875acd03dfc5d4483ea74ca4bfe5d71a90b05bfc484e8201721c8603db982760fd27566a69a834f21d34437f7c390e21cd4c6bff149ca7e3a46d3b217a
+  languageName: node
+  linkType: hard
+
+"lit@npm:^3.2.1":
+  version: 3.3.2
+  resolution: "lit@npm:3.3.2"
+  dependencies:
+    "@lit/reactive-element": "npm:^2.1.0"
+    lit-element: "npm:^4.2.0"
+    lit-html: "npm:^3.3.0"
+  checksum: 10c0/50563fd9c7bf546f8fdc6a936321b5be581ce440a359b06048ae5d44c1ecf6c38c2ded708e97d36a1ce70da1a7ad569890e40e0fb5ed040ec42d5ed2365f468d
   languageName: node
   linkType: hard
 
@@ -8164,6 +8239,7 @@ __metadata:
     "@babel/preset-env": "npm:^7.28.5"
     "@babel/preset-react": "npm:^7.28.5"
     "@babel/preset-typescript": "npm:^7.28.5"
+    "@giscus/react": "npm:^3.1.0"
     "@types/react": "npm:^19.2.7"
     "@types/react-dom": "npm:^19.2.3"
     autoprefixer: "npm:^10.4.23"

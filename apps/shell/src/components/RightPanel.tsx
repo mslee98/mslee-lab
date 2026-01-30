@@ -63,7 +63,7 @@ function RightPanel() {
   };
 
   return (
-    <div className="flex justify-center m-0 p-0">
+    <div className="relative flex justify-center m-0 p-0">
       <DeviceFrameset device={currentDevice} landscape={false} color="black">
         <div
           className="
@@ -98,6 +98,26 @@ function RightPanel() {
           </div>
         </div>
       </DeviceFrameset>
+
+      {/* Device Shadow */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          -bottom-6
+          w-[85%]
+          h-6
+          bg-black
+          blur-2xl
+          rounded-full
+          scale-y-50
+          opacity-100
+        "
+        style={{
+          filter: "blur(28px)",
+          transform: "scaleY(0.35)",
+        }}
+      />
     </div>
   );
 }
