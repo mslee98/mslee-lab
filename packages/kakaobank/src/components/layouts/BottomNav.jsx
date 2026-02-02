@@ -1,19 +1,20 @@
-import { 
-    homeIcon,
-    beakerIcon,
-    cpuIcon,
-    cubeIcon,
-    squares2x2Icon
-} from 'share';
+import { homeIcon, beakerIcon, cpuIcon, cubeIcon, squares2x2Icon } from "share";
 
 const NAV_ITEMS = [
-  { label: '홈', icon: homeIcon },
-  { label: '실험', icon: beakerIcon },
-  { label: 'AI', icon: cpuIcon },
-  { label: '상품', icon: cubeIcon },
-  { label: '전체', icon: squares2x2Icon },
+  { label: "홈", icon: homeIcon },
+  { label: "실험", icon: beakerIcon },
+  { label: "AI", icon: cpuIcon },
+  { label: "상품", icon: cubeIcon },
+  { label: "전체", icon: squares2x2Icon },
 ];
 
+/**
+ * @description 이 컴포넌트 하드코딩된 바텀메뉴를 리턴합니다.
+ *
+ * 각 아이콘들은 packages/shell로 부터 아이콘을 가져온다.
+ *
+ * @returns
+ */
 export default function BottomNav() {
   return (
     <nav

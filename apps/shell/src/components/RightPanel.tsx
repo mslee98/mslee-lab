@@ -8,7 +8,8 @@ import AppContent from "./mobile/AppContent";
 import StatusBar from "./mobile/StatusBar";
 import IOSErrorModal from "./common/IOSErrorModal";
 
-import iPhoneBgDefault from "../assets/iPhone_bg_default.png";
+// import iPhoneBgDefault from "../assets/iPhone_bg_default.png";
+import iPhoneBgDark from "../assets/iPhone_bg_dark.png";
 
 import { APPS } from "@configs/apps";
 import type { AppConfig } from "@configs/apps";
@@ -63,7 +64,7 @@ function RightPanel() {
   };
 
   return (
-    <div className="relative flex justify-center m-0 p-0">
+    <div className="relative flex justify-center">
       <DeviceFrameset device={currentDevice} landscape={false} color="black">
         <div
           className="
@@ -73,7 +74,7 @@ function RightPanel() {
             cursor-default
             bg-cover bg-center
           "
-          style={{ backgroundImage: `url(${iPhoneBgDefault})` }}
+          style={{ backgroundImage: `url(${iPhoneBgDark})` }}
         >
           {/* StatusBar */}
           <div className="relative z-50">
