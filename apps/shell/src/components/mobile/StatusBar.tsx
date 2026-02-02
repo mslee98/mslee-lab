@@ -1,7 +1,10 @@
 import { memo, useEffect, useState } from "react";
 
-import batteryWhite from "@/assets/battery-white.png";
-import batteryDark from "@/assets/battery-dark.png";
+// import batteryWhite from "@/assets/battery-white.png";
+// import batteryDark from "@/assets/battery-dark.png";
+
+import rightOptionDark from "@/assets/Right-option-dark.png";
+import rightOptionWhite from "@/assets/Right-option-white.png";
 
 interface StatusBarProps {
   /** 다크 모드 여부 */
@@ -37,9 +40,9 @@ function StatusBar({ isDark }: StatusBarProps) {
       {/* Right: Battery */}
       <div className="pr-[calc(28px+env(safe-area-inset-right))]">
         <img
-          src={isDark ? batteryWhite : batteryDark}
+          src={isDark ? rightOptionWhite : rightOptionDark}
           alt="battery"
-          className="h-4"
+          className=""
           draggable={false}
         />
       </div>
