@@ -8255,6 +8255,7 @@ __metadata:
     react-device-frameset: "npm:^1.3.4"
     react-dom: "npm:^19.2.3"
     react-router-dom: "npm:^7.11.0"
+    share: "workspace:*"
     style-loader: "npm:^4.0.0"
     tailwindcss: "npm:^3.4.19"
     toss: "workspace:*"

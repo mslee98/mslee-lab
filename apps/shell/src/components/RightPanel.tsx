@@ -64,62 +64,64 @@ function RightPanel() {
   };
 
   return (
-    <div className="relative flex justify-center">
-      <DeviceFrameset device={currentDevice} landscape={false} color="black">
+    <>
+      <div className="relative flex justify-center">
+        <DeviceFrameset device={currentDevice} landscape={false} color="black">
+          <div
+            className="
+              relative
+              flex flex-col
+              w-full h-full
+              cursor-default
+              bg-cover bg-center
+            "
+            style={{ backgroundImage: `url(${iPhoneBgDark})` }}
+          >
+            {/* StatusBar */}
+            <div className="relative z-50">
+              <StatusBar isDark={isDark} />
+            </div>
+
+            {/* App Area */}
+            <div className="relative flex-1 flex">
+              {renderAppContent()}
+
+              {!isHome && (status === "down" || status === "no-url") && (
+                <IOSErrorModal
+                  title={status === "no-url" ? "앱 미구현" : "연결 오류"}
+                  message={
+                    status === "no-url"
+                      ? "아직 실행 가능한 앱이 아닙니다."
+                      : "앱 서버가 실행되지 않았습니다."
+                  }
+                  onClose={() => setCurrentApp("home")}
+                />
+              )}
+            </div>
+          </div>
+        </DeviceFrameset>
+
+        {/* Device Shadow */}
         <div
           className="
-            relative
-            flex flex-col
-            w-full h-full
-            cursor-default
-            bg-cover bg-center
+            pointer-events-none
+            absolute
+            -bottom-6
+            w-[85%]
+            h-6
+            bg-black
+            blur-2xl
+            rounded-full
+            scale-y-50
+            opacity-100
           "
-          style={{ backgroundImage: `url(${iPhoneBgDark})` }}
-        >
-          {/* StatusBar */}
-          <div className="relative z-50">
-            <StatusBar isDark={isDark} />
-          </div>
-
-          {/* App Area */}
-          <div className="relative flex-1 flex">
-            {renderAppContent()}
-
-            {!isHome && (status === "down" || status === "no-url") && (
-              <IOSErrorModal
-                title={status === "no-url" ? "앱 미구현" : "연결 오류"}
-                message={
-                  status === "no-url"
-                    ? "아직 실행 가능한 앱이 아닙니다."
-                    : "앱 서버가 실행되지 않았습니다."
-                }
-                onClose={() => setCurrentApp("home")}
-              />
-            )}
-          </div>
-        </div>
-      </DeviceFrameset>
-
-      {/* Device Shadow */}
-      <div
-        className="
-          pointer-events-none
-          absolute
-          -bottom-6
-          w-[85%]
-          h-6
-          bg-black
-          blur-2xl
-          rounded-full
-          scale-y-50
-          opacity-100
-        "
-        style={{
-          filter: "blur(28px)",
-          transform: "scaleY(0.35)",
-        }}
-      />
-    </div>
+          style={{
+            filter: "blur(28px)",
+            transform: "scaleY(0.35)",
+          }}
+        />
+      </div>
+    </>
   );
 }
 
