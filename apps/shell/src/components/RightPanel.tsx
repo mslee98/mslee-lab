@@ -8,24 +8,59 @@ import AppContent from "./mobile/AppContent";
 import StatusBar from "./mobile/StatusBar";
 import IOSErrorModal from "./common/IOSErrorModal";
 
-import iPhoneBgDefault from "../assets/iPhone_bg_default.png";
+// import iPhoneBgDefault from "../assets/iPhone_bg_default.png";
+import iPhoneBgDark from "../assets/iPhone_bg_dark.png";
 
 import { APPS } from "@configs/apps";
 import type { AppConfig } from "@configs/apps";
 
 import { useMobile } from "@contexts/MobileContext";
 
+import IOSAlertComponent from "./IOSAlertComponent";
+
 type status = "idle" | "checking" | "available" | "no-url" | "down";
 
+import { AnimatePresence } from "framer-motion";
+
+/**
+ * @description RightPanel도 하나의 App처럼 별개의 레이아웃을 가진다.
+ *
+ * env파일을 통해 각 앱들의 url을 iframe으로 가져와서 사용한다.
+ *
+ * @returns
+ */
 function RightPanel() {
   const { currentApp, currentDevice, setCurrentApp } = useMobile();
 
   const app: AppConfig = useMemo(() => APPS[currentApp], [currentApp]);
 
+  // 흠 지금 fetch 접근 가능하지 판단하는데 사치인거 같기도 함
   const [status, setStatus] = useState<status>("idle");
 
   const isDark = Boolean(app?.dark);
   const isHome = currentApp === "home";
+
+  const [alerts, setAlerts] = useState<
+    { id: string; title: string; message: string }[]
+  >([]);
+
+  /**
+   * 해당 함수는 최초 1회만 인사를 위해 만들어 둠
+   */
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setAlerts((prev) => [
+        {
+          id: crypto.randomUUID(),
+          title: "🙌 안녕하세요",
+          message: "해당 알림을 좌측으로 드래그해서 지울 수 있습니다!",
+        },
+        ...prev,
+      ]);
+    }, 3000);
+
+    return () => clearTimeout(timeoutId);
+  }, []);
 
   useEffect(() => {
     if (isHome) {
@@ -63,42 +98,84 @@ function RightPanel() {
   };
 
   return (
-    <div className="flex justify-center m-0 p-0">
-      <DeviceFrameset device={currentDevice} landscape={false} color="black">
+    <>
+      <div className="relative flex justify-center">
+        <DeviceFrameset device={currentDevice} landscape={false} color="black">
+          <div
+            className="
+              relative
+              flex flex-col
+              w-full h-full
+              cursor-default
+              bg-cover bg-center
+            "
+            style={{ backgroundImage: `url(${iPhoneBgDark})` }}
+          >
+            {/* StatusBar 상단 고정 시계 및 배터리*/}
+            <div className="relative z-50">
+              <StatusBar isDark={isDark} />
+            </div>
+
+            {/* IOS Alert 레이어 */}
+            <div className="absolute top-[44px] left-0 right-0 z-40 flex justify-center">
+              <div className="flex w-full max-w-[360px] flex-col gap-4">
+                <AnimatePresence initial={false}>
+                  {alerts.map((alert) => (
+                    <IOSAlertComponent
+                      key={alert.id}
+                      title={alert.title}
+                      message={alert.message}
+                      onDismiss={() =>
+                        setAlerts((prev) =>
+                          prev.filter((a) => a.id !== alert.id),
+                        )
+                      }
+                    />
+                  ))}
+                </AnimatePresence>
+              </div>
+            </div>
+
+            {/* App Area */}
+            <div className="relative flex-1 flex">
+              {renderAppContent()}
+
+              {!isHome && (status === "down" || status === "no-url") && (
+                <IOSErrorModal
+                  title={status === "no-url" ? "앱 미구현" : "연결 오류"}
+                  message={
+                    status === "no-url"
+                      ? "아직 실행 가능한 앱이 아닙니다."
+                      : "앱 서버가 실행되지 않았습니다."
+                  }
+                  onClose={() => setCurrentApp("home")}
+                />
+              )}
+            </div>
+          </div>
+        </DeviceFrameset>
+
+        {/* Device Shadow */}
         <div
           className="
-            relative
-            flex flex-col
-            w-full h-full
-            cursor-default
-            bg-cover bg-center
+            pointer-events-none
+            absolute
+            -bottom-6
+            w-[85%]
+            h-6
+            bg-black
+            blur-2xl
+            rounded-full
+            scale-y-50
+            opacity-100
           "
-          style={{ backgroundImage: `url(${iPhoneBgDefault})` }}
-        >
-          {/* StatusBar */}
-          <div className="relative z-50">
-            <StatusBar isDark={isDark} />
-          </div>
-
-          {/* App Area */}
-          <div className="relative flex-1 flex">
-            {renderAppContent()}
-
-            {!isHome && (status === "down" || status === "no-url") && (
-              <IOSErrorModal
-                title={status === "no-url" ? "앱 미구현" : "연결 오류"}
-                message={
-                  status === "no-url"
-                    ? "아직 실행 가능한 앱이 아닙니다."
-                    : "앱 서버가 실행되지 않았습니다."
-                }
-                onClose={() => setCurrentApp("home")}
-              />
-            )}
-          </div>
-        </div>
-      </DeviceFrameset>
-    </div>
+          style={{
+            filter: "blur(28px)",
+            transform: "scaleY(0.35)",
+          }}
+        />
+      </div>
+    </>
   );
 }
 

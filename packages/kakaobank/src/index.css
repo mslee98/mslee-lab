@@ -3,24 +3,24 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'KakaoBigSans';
-  src: url('./assets/fonts/KakaoBigSans-Regular.woff2') format('woff2');
+  font-family: "KakaoBigSans";
+  src: url("./assets/fonts/KakaoBigSans-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'KakaoBigSans';
-  src: url('./assets/fonts/KakaoBigSans-Bold.woff2') format('woff2');
+  font-family: "KakaoBigSans";
+  src: url("./assets/fonts/KakaoBigSans-Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'KakaoBigSans';
-  src: url('./assets/fonts/KakaoBigSans-ExtraBold.woff2') format('woff2');
+  font-family: "KakaoBigSans";
+  src: url("./assets/fonts/KakaoBigSans-ExtraBold.woff2") format("woff2");
   font-weight: 800;
   font-style: normal;
   font-display: swap;
@@ -29,9 +29,15 @@
 html,
 body,
 #root {
-  font-family: 'KakaoBigSans', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Noto Sans KR', sans-serif;
-    
+  font-family:
+    "KakaoBigSans",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    "Noto Sans KR",
+    sans-serif;
+
   width: 100%;
   height: 100%;
   margin: 0;
@@ -97,12 +103,10 @@ body {
   backdrop-filter: blur(4px);
 }
 
-
-
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
 .no-scrollbar {
-  -ms-overflow-style: none;  /* IE */
-  scrollbar-width: none;     /* Firefox */
+  -ms-overflow-style: none; /* IE */
+  scrollbar-width: none; /* Firefox */
 }

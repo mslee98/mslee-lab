@@ -1,33 +1,29 @@
-import { plusIcon, hanaSymbolLogo, kakaobankSymbolWhiteLogo } from 'share';
-import { Link } from 'react-router-dom';
+import { plusIcon, hanaSymbolLogo, kakaobankSymbolWhiteLogo } from "share";
+import { Link } from "react-router-dom";
 
 export default function Home() {
-
   return (
     <>
-
       {/* 계좌 카드 */}
       <div className="mt-4 space-y-4">
         <MainAccountCard />
         <GroupAccountCard />
         <AccountCard isEmpty />
-        
-        <PlusCard/>
+
+        <PlusCard />
       </div>
     </>
-          
   );
 }
 
 function MainAccountCard() {
   return (
     <div className="rounded-2xl bg-[#2c2c2e] p-5 text-white">
-      
       {/* 상단 */}
       <div className="flex items-center gap-3">
         {/* 은행 로고 */}
         <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
-          <img src={kakaobankSymbolWhiteLogo} className="w-5 h-5"/>
+          <img src={kakaobankSymbolWhiteLogo} className="w-5 h-5" />
         </div>
 
         {/* 통장 정보 */}
@@ -39,13 +35,9 @@ function MainAccountCard() {
             </span>
           </p>
 
-          <p className="text-2xl font-bold mt-1">
-            47,702,221원
-          </p>
+          <p className="text-2xl font-bold mt-1">47,702,221원</p>
 
-          <p className="text-xs opacity-50">
-          출금가능 50,702,221원
-        </p>
+          <p className="text-xs opacity-50">출금가능 50,702,221원</p>
         </div>
       </div>
 
@@ -78,8 +70,6 @@ function MainAccountCard() {
   );
 }
 
-
-
 function AccountCard({ isEmpty = false }) {
   return (
     <div className="rounded-2xl bg-[#2c2c2e] p-5 text-white">
@@ -95,13 +85,11 @@ function AccountCard({ isEmpty = false }) {
           </p>
 
           <p className="text-2xl font-bold mt-1">
-            {isEmpty ? '0원' : '4,702,221원'}
+            {isEmpty ? "0원" : "4,702,221원"}
           </p>
 
           {!isEmpty && (
-            <p className="text-xs opacity-50 mt-1">
-              출금가능 7,702,221원
-            </p>
+            <p className="text-xs opacity-50 mt-1">출금가능 7,702,221원</p>
           )}
         </div>
 
@@ -153,14 +141,20 @@ function GroupAccountCard() {
       <div className="flex flex-col gap-y-3">
         <div className="flex justify-between items-center p-2">
           <p className="text-sm opacity-70">스크롤 애니메이션</p>
-          <Link to={'/event1'} className="text-xs bg-white/20 px-3 py-1 rounded-full">
+          <Link
+            to={"/event1"}
+            className="text-xs bg-white/20 px-3 py-1 rounded-full"
+          >
             들어가기
           </Link>
         </div>
 
         <div className="flex justify-between items-center p-2">
           <p className="text-sm opacity-70">캔버스 애니메이션</p>
-          <Link to={'/event2'} className="text-xs bg-white/20 px-3 py-1 rounded-full">
+          <Link
+            to={"/event2"}
+            className="text-xs bg-white/20 px-3 py-1 rounded-full"
+          >
             들어가기
           </Link>
         </div>
@@ -210,11 +204,10 @@ function GroupAccountCard() {
 
 function PlusCard() {
   return (
-     <div className="rounded-2xl bg-[#2c2c2e] p-5 text-white">
+    <div className="rounded-2xl bg-[#2c2c2e] p-5 text-white">
       <div className="flex justify-center items-center">
-        
-        <img src={plusIcon} className="w-6 h-6"/>
+        <img src={plusIcon} className="w-6 h-6" />
       </div>
     </div>
-  )
+  );
 }
