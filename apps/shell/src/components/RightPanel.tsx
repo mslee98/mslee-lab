@@ -16,17 +16,51 @@ import type { AppConfig } from "@configs/apps";
 
 import { useMobile } from "@contexts/MobileContext";
 
+import IOSAlertComponent from "./IOSAlertComponent";
+
 type status = "idle" | "checking" | "available" | "no-url" | "down";
 
+import { AnimatePresence } from "framer-motion";
+
+/**
+ * @description RightPanel도 하나의 App처럼 별개의 레이아웃을 가진다.
+ *
+ * env파일을 통해 각 앱들의 url을 iframe으로 가져와서 사용한다.
+ *
+ * @returns
+ */
 function RightPanel() {
   const { currentApp, currentDevice, setCurrentApp } = useMobile();
 
   const app: AppConfig = useMemo(() => APPS[currentApp], [currentApp]);
 
+  // 흠 지금 fetch 접근 가능하지 판단하는데 사치인거 같기도 함
   const [status, setStatus] = useState<status>("idle");
 
   const isDark = Boolean(app?.dark);
   const isHome = currentApp === "home";
+
+  const [alerts, setAlerts] = useState<
+    { id: string; title: string; message: string }[]
+  >([]);
+
+  /**
+   * 해당 함수는 최초 1회만 인사를 위해 만들어 둠
+   */
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setAlerts((prev) => [
+        {
+          id: crypto.randomUUID(),
+          title: "🙌 안녕하세요",
+          message: "해당 알림을 좌측으로 드래그해서 지울 수 있습니다!",
+        },
+        ...prev,
+      ]);
+    }, 3000);
+
+    return () => clearTimeout(timeoutId);
+  }, []);
 
   useEffect(() => {
     if (isHome) {
@@ -77,9 +111,29 @@ function RightPanel() {
             "
             style={{ backgroundImage: `url(${iPhoneBgDark})` }}
           >
-            {/* StatusBar */}
+            {/* StatusBar 상단 고정 시계 및 배터리*/}
             <div className="relative z-50">
               <StatusBar isDark={isDark} />
+            </div>
+
+            {/* IOS Alert 레이어 */}
+            <div className="absolute top-[44px] left-0 right-0 z-40 flex justify-center">
+              <div className="flex w-full max-w-[360px] flex-col gap-4">
+                <AnimatePresence initial={false}>
+                  {alerts.map((alert) => (
+                    <IOSAlertComponent
+                      key={alert.id}
+                      title={alert.title}
+                      message={alert.message}
+                      onDismiss={() =>
+                        setAlerts((prev) =>
+                          prev.filter((a) => a.id !== alert.id),
+                        )
+                      }
+                    />
+                  ))}
+                </AnimatePresence>
+              </div>
             </div>
 
             {/* App Area */}
