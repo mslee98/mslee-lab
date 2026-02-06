@@ -13,6 +13,9 @@ export default function IOSAlertComponent({
   message,
   onDismiss,
 }: IIOSAlertComponentProps) {
+  /**
+   * @description Alert 창 드래그 시 일정 범위를 넘지 못하면 원래 자리로 이동시키기 위한 변수
+   */
   const x = useMotionValue(0);
 
   return (
@@ -24,7 +27,7 @@ export default function IOSAlertComponent({
       dragConstraints={{ left: -120, right: 0 }}
       onDragEnd={(_, info) => {
         if (info.offset.x < -80) {
-          onDismiss();
+          onDismiss(); // RightPanel Props로 alert 리스트를 제거한다.
         } else {
           // 👈 미세 드래그 → 원위치 스냅
           animate(x, 0, {
