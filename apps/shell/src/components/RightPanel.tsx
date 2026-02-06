@@ -45,21 +45,35 @@ function RightPanel() {
   >([]);
 
   /**
-   * 해당 함수는 최초 1회만 인사를 위해 만들어 둠
+   * 최초 1회 인사 + 안내 알림
    */
   useEffect(() => {
-    const timeoutId = setTimeout(() => {
+    const t1 = setTimeout(() => {
       setAlerts((prev) => [
         {
           id: crypto.randomUUID(),
           title: "🙌 안녕하세요",
-          message: "해당 알림을 좌측으로 드래그해서 지울 수 있습니다!",
+          message: "프론트 개발 이야기를 좋아해요!",
         },
         ...prev,
       ]);
     }, 3000);
 
-    return () => clearTimeout(timeoutId);
+    const t2 = setTimeout(() => {
+      setAlerts((prev) => [
+        {
+          id: crypto.randomUUID(),
+          title: "Guide",
+          message: "해당 Alert은 좌측으로 Darg를 하면 지워집니다",
+        },
+        ...prev,
+      ]);
+    }, 5000); // 3초 + 2초
+
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
   }, []);
 
   useEffect(() => {
@@ -125,6 +139,7 @@ function RightPanel() {
                       key={alert.id}
                       title={alert.title}
                       message={alert.message}
+                      // Alert 제거 함수
                       onDismiss={() =>
                         setAlerts((prev) =>
                           prev.filter((a) => a.id !== alert.id),
@@ -155,7 +170,7 @@ function RightPanel() {
           </div>
         </DeviceFrameset>
 
-        {/* Device Shadow */}
+        {/* Device Shadow 디바이스 프레임 하단에 그림자를 넣는다. */}
         <div
           className="
             pointer-events-none
