@@ -27,7 +27,8 @@
     "src/**/*.spec.js",
     "src/**/*.json",
     "@types/*",
-    "utils/**/*"
-    // "jest.setup.ts"
+    "utils/**/*",
+    "deprecate/GiscusPopover.tsx",
+    "deprecate/GiscusPortal.tsx" // "jest.setup.ts"
   ]
 }
