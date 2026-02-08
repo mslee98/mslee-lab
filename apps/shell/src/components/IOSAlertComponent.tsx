@@ -27,7 +27,7 @@ export default function IOSAlertComponent({
       dragConstraints={{ left: -120, right: 0 }}
       onDragEnd={(_, info) => {
         if (info.offset.x < -80) {
-          onDismiss(); // RightPanel Props로 alert 리스트를 제거한다.
+          onDismiss();
         } else {
           // 👈 미세 드래그 → 원위치 스냅
           animate(x, 0, {
