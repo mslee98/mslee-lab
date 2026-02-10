@@ -28,11 +28,13 @@ export type AppDeviceName = Extract<
 interface MobileState {
   currentApp: AppKey;
   currentDevice: AppDeviceName; // DeviceName은 전체 AppDebiceName은 내가 위에 정의한 기종만 뜻 함
+  currentSize: number;
 }
 
 interface MobileActions {
   setCurrentApp: (key: AppKey) => void;
   setCurrentDevice: (device: AppDeviceName) => void;
+  setCurrentSize: (value: number) => void;
 }
 
 type MobileContextValue = MobileState & MobileActions;
@@ -42,14 +44,17 @@ const MobileContext = createContext<MobileContextValue | null>(null);
 export function MobileProvider({ children }: { children: ReactNode }) {
   const [currentApp, setCurrentApp] = useState<AppKey>("home");
   const [currentDevice, setCurrentDevice] = useState<AppDeviceName>("iPhone X");
+  const [currentSize, setCurrentSize] = useState<number>(0.8);
 
   return (
     <MobileContext.Provider
       value={{
         currentApp,
         currentDevice,
+        currentSize,
         setCurrentApp,
         setCurrentDevice,
+        setCurrentSize,
       }}
     >
       {children}

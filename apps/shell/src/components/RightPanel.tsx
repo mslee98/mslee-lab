@@ -1,5 +1,5 @@
 import { useState, useEffect, memo, useMemo } from "react";
-import { DeviceFrameset } from "react-device-frameset";
+import { DeviceFrameset, DeviceFramesetProps } from "react-device-frameset";
 import "react-device-frameset/styles/marvel-devices.min.css";
 
 import Loader from "./common/Loader";
@@ -30,13 +30,17 @@ import { AnimatePresence } from "framer-motion";
  * @returns
  */
 function RightPanel() {
-  const { currentApp, currentDevice, setCurrentApp } = useMobile();
+  const { currentApp, currentDevice, currentSize, setCurrentApp } = useMobile();
 
   const app: AppConfig = useMemo(() => APPS[currentApp], [currentApp]);
 
   // 흠 지금 fetch 접근 가능하지 판단하는데 사치인거 같기도 함
   const [status, setStatus] = useState<status>("idle");
 
+  /**
+   *  @description StatusBar를 위한 다크 모드 변수
+   *
+   * */
   const isDark = Boolean(app?.dark);
   const isHome = currentApp === "home";
 
@@ -114,7 +118,12 @@ function RightPanel() {
   return (
     <>
       <div className="relative flex justify-center">
-        <DeviceFrameset device={currentDevice} landscape={false} color="black">
+        <DeviceFrameset
+          device={currentDevice}
+          landscape={false}
+          color="black"
+          zoom={currentSize}
+        >
           <div
             className="
               relative
