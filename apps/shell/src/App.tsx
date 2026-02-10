@@ -45,7 +45,7 @@ export default function App() {
         {/* 1280 고정 */}
         <div className="w-[1280px] flex flex-col h-screen">
           {/* Content */}
-          <div className="flex-1 overflow-hidden md:px-6 md:py-4">
+          <div className="flex-1 overflow-hidden md:px-6 md:pt-4">
             <div className="h-full flex gap-8">
               {/* Left - mobild 환경에서 LeftMenu는 감춘다*/}
               <div className="w-[600px] shrink-0 hidden md:flex flex-col h-full overflow-hidden">
@@ -97,18 +97,20 @@ export default function App() {
                 </div>
 
                 {/* Bottom (남은 영역만 사용) */}
-                <div className="flex-1 overflow-hidden bg-slate-50 rounded-lg px-2 py-4">
-                  <Giscus
-                    repo="mslee98/mslee-lab"
-                    repoId="R_kgDOQ8kmkw"
-                    category="General"
-                    categoryId="DIC_kwDOQ8kmk84C1n1h"
-                    mapping="pathname"
-                    reactionsEnabled="0"
-                    inputPosition="top"
-                    theme="light_protanopia"
-                    lang="ko"
-                  />
+                <div className="flex-1 min-h-0 bg-slate-50 rounded-lg px-2 py-4">
+                  <div className="h-full overflow-auto px-2 py-4">
+                    <Giscus
+                      repo="mslee98/mslee-lab"
+                      repoId="R_kgDOQ8kmkw"
+                      category="General"
+                      categoryId="DIC_kwDOQ8kmk84C1n1h"
+                      mapping="pathname"
+                      reactionsEnabled="0"
+                      inputPosition="top"
+                      theme="light_protanopia"
+                      lang="ko"
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -128,7 +130,7 @@ export default function App() {
                 </header>
 
                 {/* Content */}
-                <div className="flex-1 overflow-hidden p-4 md:p-0">
+                <div className="flex-1 overflow-hidden md:p-0">
                   <RightPanel />
                 </div>
               </div>
