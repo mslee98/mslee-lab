@@ -17,8 +17,14 @@ const DEVICES: readonly IDevice[] = [
 ];
 
 function LeftPanel() {
-  const { currentApp, currentDevice, setCurrentApp, setCurrentDevice } =
-    useMobile();
+  const {
+    currentApp,
+    currentDevice,
+    currentSize,
+    setCurrentApp,
+    setCurrentDevice,
+    setCurrentSize,
+  } = useMobile();
 
   const handleSelectApp = useCallback(
     (key: AppKey) => setCurrentApp(key),
@@ -28,6 +34,11 @@ function LeftPanel() {
   const handleSelectDevice = useCallback(
     (device: AppDeviceName) => setCurrentDevice(device),
     [setCurrentDevice],
+  );
+
+  const handleSelectSize = useCallback(
+    (value: number) => setCurrentSize(value),
+    [setCurrentSize],
   );
 
   const entries = Object.entries(APPS) as [AppKey, AppMap[AppKey]][];
@@ -79,6 +90,46 @@ function LeftPanel() {
             {d.label}
           </button>
         ))}
+      </div>
+
+      <h2 className="mt-8 text-base font-medium">디바이스 사이즈</h2>
+
+      <div className="w-full mt-2 flex flex-wrap gap-2">
+        <button
+          className="
+            px-4 py-2
+            rounded-lg
+            border-none
+            cursor-pointer
+            transition-transform duration-200
+            bg-gray-200 text-black
+            hover:scale-105
+            active:scale-95
+          active:bg-gray-300
+            active:shadow-inner
+          "
+          onClick={() => handleSelectSize(currentSize + 0.1)}
+        >
+          확대
+        </button>
+
+        <button
+          className="
+            px-4 py-2
+            rounded-lg
+            border-none
+            cursor-pointer
+            transition-transform duration-200
+            bg-gray-200 text-black
+            hover:scale-105
+            active:scale-95
+          active:bg-gray-300
+            active:shadow-inner
+          "
+          onClick={() => handleSelectSize(currentSize - 0.1)}
+        >
+          축소
+        </button>
       </div>
 
       <h2 className="mt-8 text-base font-medium">More Info</h2>
